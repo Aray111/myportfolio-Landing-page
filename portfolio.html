@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Portfolio | Aray</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/portfolio.css" />
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">Aray</div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="portfolio.html" class="active">Portfolio</a>
+                <a href="contacts.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main class="portfolio">
+
+        <!-- HERO -->
+        <section class="portfolio-hero">
+            <h1>My Projects</h1>
+            <p>Real projects published on GitHub Pages during my frontend journey.</p>
+        </section>
+
+        <!-- FILTERS -->
+        <div class="portfolio-filters container">
+            <button class="active" data-filter="all">All</button>
+            <button data-filter="html">HTML</button>
+            <button data-filter="css">CSS</button>
+            <button data-filter="javascript">JavaScript</button>
+            <button data-filter="responsive">Responsive</button>
+            <button data-filter="aos">AOS</button>
+            <button data-filter="tailwind">Tailwind</button>
+            <button data-filter="bootstrap">Bootstrap</button>
+        </div>
+
+        <!-- PROJECTS GRID -->
+        <section class="portfolio-grid container">
+
+            <!-- PROJECT 1 -->
+            <div class="portfolio-card" data-tags="html css aos">
+                <div class="card-image">
+                    <img src="images/project-aos.png" alt="Landing Page with AOS">
+                </div>
+                <div class="card">
+                    <h3>Landing Page with AOS</h3>
+                    <p>Animated landing page using HTML, CSS and AOS.</p>
+                    <div class="tags">
+                        <span>HTML</span><span>CSS</span><span>AOS</span>
+                    </div>
+                    <a href="https://aray111.github.io/HomeTaskAOS/" target="_blank" class="btn">
+          View Live
+        </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="portfolio-card" data-tags="html css javascript">
+                <div class="card-image">
+                    <img src="images/project-gallery.png" alt="Image Gallery">
+                </div>
+                <div class="card">
+                    <h3>Interactive Image Gallery</h3>
+                    <p>Masonry layout with Glightbox.</p>
+                    <div class="tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                    <a href="https://aray111.github.io/HomeTaskglightbox-masonry/" target="_blank" class="btn">
+          View Live
+        </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="portfolio-card" data-tags="html css responsive">
+                <div class="card-image">
+                    <img src="images/project-media.png" alt="Responsive Media Page">
+                </div>
+                <div class="card">
+                    <h3>Responsive Media Page</h3>
+                    <p>Adaptive layout with media content.</p>
+                    <div class="tags">
+                        <span>HTML</span><span>CSS</span><span>Responsive</span>
+                    </div>
+                    <a href="https://aray111.github.io/HomeTaskmedia/" target="_blank" class="btn">
+          View Live
+        </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 4 -->
+            <div class="portfolio-card" data-tags="html css responsive tailwind">
+                <div class="card-image">
+                    <img src="images/project-tailwind.png" alt="Tailwind CSS Project">
+                </div>
+                <div class="card">
+                    <h3>Tailwind CSS Project</h3>
+                    <p>Responsive layout built with Tailwind CSS.</p>
+                    <div class="tags">
+                        <span>HTML</span><span>Tailwind</span><span>Responsive</span>
+                    </div>
+                    <a href="https://aray111.github.io/HomeTaskTailwindCss/" target="_blank" class="btn">
+          View Live
+        </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 5 -->
+            <div class="portfolio-card" data-tags="html css responsive bootstrap">
+                <div class="card-image">
+                    <img src="images/project-bootstrap.png" alt="Bootstrap Project">
+                </div>
+                <div class="card">
+                    <h3>Bootstrap Responsive Page</h3>
+                    <p>Responsive layout using Bootstrap framework.</p>
+                    <div class="tags">
+                        <span>HTML</span><span>Bootstrap</span><span>Responsive</span>
+                    </div>
+                    <a href="https://aray111.github.io/HomeTaskBootstrap/" target="_blank" class="btn">
+          View Live
+        </a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <p>© 2026 Aray</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/portfolio.js"></script>
+
+</body>
+
+</html>
