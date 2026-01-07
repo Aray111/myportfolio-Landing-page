@@ -1,0 +1,227 @@
+/* ===== ABOUT PAGE ===== */
+
+.about {
+    padding: 100px 0 140px;
+}
+
+
+/* ===== SECTION CARD ===== */
+
+.about-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    margin-bottom: 120px;
+    padding: 70px;
+    background: #ffffff;
+    border-radius: 32px;
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+    /* animation */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
+}
+
+.about-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-section.reverse {
+    flex-direction: row-reverse;
+}
+
+
+/* hover depth */
+
+.about-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
+}
+
+
+/* ===== TEXT ===== */
+
+.about-text {
+    max-width: 480px;
+}
+
+.about-text p+p {
+    margin-top: 14px;
+}
+
+.about-text h2 {
+    font-size: 28px;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+    position: relative;
+}
+
+.about-text h2::after {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 3px;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    margin-top: 12px;
+    border-radius: 3px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #1f2937;
+}
+
+.about-text strong {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+
+/* ===== IMAGE ===== */
+
+.about-image {
+    position: relative;
+    width: 300px;
+    height: 380px;
+    flex-shrink: 0;
+}
+
+
+/* background shape */
+
+.about-image::before {
+    content: "";
+    position: absolute;
+    inset: -16px;
+    background: linear-gradient(135deg, #93c5fd, #6ee7b7);
+    border-radius: 0 0 160px 160px;
+    z-index: 0;
+}
+
+
+/* image */
+
+.about-image img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 0 160px 160px;
+    z-index: 1;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+    transition: transform 0.6s ease;
+}
+
+.about-section:hover .about-image img {
+    transform: scale(1.05);
+}
+
+.about-text p {
+    margin-top: 12px;
+}
+
+
+/* ===== SAKURA DECOR ===== */
+
+.sakura-decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.sakura-decor span {
+    position: absolute;
+    top: -10%;
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle at 30% 30%, #ffd6e7, #f9a8d4);
+    border-radius: 60% 40% 60% 40%;
+    opacity: 0.25;
+    animation: sakura-fall 18s linear infinite;
+}
+
+.sakura-decor span:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.sakura-decor span:nth-child(2) {
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    opacity: 0.35;
+    animation-delay: 6s;
+}
+
+.sakura-decor span:nth-child(3) {
+    left: 75%;
+    width: 18px;
+    height: 18px;
+    animation-delay: 10s;
+}
+
+@keyframes sakura-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(120vh) rotate(180deg);
+    }
+}
+
+
+/* ===== NOISE ===== */
+
+.noise-overlay {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 900px) {
+    .about-section,
+    .about-section.reverse {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 28px;
+        gap: 40px;
+    }
+    .about-text {
+        max-width: 100%;
+    }
+    .about-text h2::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .about-image {
+        width: 260px;
+        height: 330px;
+    }
+    .about-image::before,
+    .about-image img {
+        border-radius: 0 0 140px 140px;
+    }
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #2563eb, #6ee7b7);
+    z-index: 10000;
+    transition: width 0.15s ease;
+}
