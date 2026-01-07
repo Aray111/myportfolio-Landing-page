@@ -1,54 +1,87 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const skeletonWrapper = document.querySelector(".skeleton-wrapper");
-    if (skeletonWrapper) {
-        skeletonWrapper.remove();
+import { projects } from "./data/projects.js";
+
+const grid = document.getElementById("projectsGrid");
+const filterButtons = document.querySelectorAll(".portfolio-filters button");
+
+let activeFilter = "all";
+
+/* =========================
+   RENDER PROJECTS
+========================= */
+
+function renderProjects(list) {
+    grid.innerHTML = "";
+
+    if (list.length === 0) {
+        grid.innerHTML = `
+            <p class="empty-state">
+              No projects found.
+            </p>
+        `;
+        return;
     }
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const filterButtons = document.querySelectorAll(".portfolio-filters button");
-    const cards = document.querySelectorAll(".portfolio-card");
-    const grid = document.querySelector(".portfolio-grid");
+    list.forEach(project => {
+                const card = document.createElement("div");
+                card.className = "portfolio-card";
 
-    let isFiltering = false;
+                card.innerHTML = `
+            <div class="card-image">
+                <img src="${project.image}" alt="${project.title}">
+            </div>
 
-    filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            if (isFiltering) return;
-            isFiltering = true;
+            <div class="card">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
 
-            // 1. Active button
-            filterButtons.forEach(b => b.classList.remove("active"));
-            button.classList.add("active");
+                <div class="tags">
+                    ${project.tags.map(tag => `<span>${tag}</span>`).join("")}
+                </div>
 
-            const filter = button.dataset.filter;
+                <a 
+                  href="${project.live}" 
+                  target="_blank" 
+                  rel="noopener"
+                  class="btn"
+                >
+                  View Live
+                </a>
+            </div>
+        `;
 
-            // 2. Save grid position BEFORE
-            const gridTopBefore = grid.getBoundingClientRect().top;
+        grid.appendChild(card);
+    });
+}
 
-            // 3. Filter cards
-            cards.forEach(card => {
-                const tags = card.dataset.tags || "";
-                card.style.display =
-                    filter === "all" || tags.includes(filter) ?
-                    "flex" :
-                    "none";
-            });
+/* =========================
+   FILTER LOGIC
+========================= */
 
-            // 4. Restore scroll position
-            requestAnimationFrame(() => {
-                const gridTopAfter = grid.getBoundingClientRect().top;
-                const diff = gridTopAfter - gridTopBefore;
+function getFilteredProjects() {
+    if (activeFilter === "all") return projects;
 
-                if (diff !== 0) {
-                    window.scrollTo({
-                        top: window.scrollY + diff,
-                        behavior: "auto"
-                    });
-                }
+    return projects.filter(project =>
+        project.tags.includes(activeFilter)
+    );
+}
 
-                isFiltering = false;
-            });
-        });
+/* =========================
+   INIT
+========================= */
+
+renderProjects(projects);
+
+/* =========================
+   EVENTS
+========================= */
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter.toLowerCase();
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        renderProjects(getFilteredProjects());
     });
 });

@@ -66,44 +66,16 @@
 
 
 /* =========================
-   SKELETON (LOAD ONLY)
+   GRID  ✅ FIXED (IMPORTANT)
 ========================= */
 
-.skeleton-wrapper {
+#projectsGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-bottom: 40px;
-    pointer-events: none;
-}
-
-.skeleton {
-    height: 340px;
-    border-radius: 26px;
-    background: linear-gradient( 90deg, #e5e7eb 25%, #f3f4f6 37%, #e5e7eb 63%);
-    background-size: 400% 100%;
-    animation: skeleton 1.4s infinite;
-}
-
-@keyframes skeleton {
-    0% {
-        background-position: 100% 0;
-    }
-    100% {
-        background-position: 0 0;
-    }
-}
-
-
-/* =========================
-   GRID
-========================= */
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    align-items: start;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 360px));
+    gap: 32px;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 60vh;
 }
 
 
@@ -118,7 +90,6 @@
     border-radius: 26px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-    cursor: pointer;
     transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.3s ease;
 }
 
@@ -128,18 +99,13 @@
 }
 
 
-/* filter animation helper */
-
-.portfolio-card.is-hiding {
-    opacity: 0;
-    transform: translateY(20px);
-    pointer-events: none;
-}
-
-
 /* =========================
    IMAGE
 ========================= */
+
+.card-image {
+    overflow: hidden;
+}
 
 .card-image img {
     width: 100%;
@@ -159,6 +125,9 @@
 
 .card {
     padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .card h3 {
@@ -197,8 +166,9 @@
    BUTTON
 ========================= */
 
-.card .btn {
-    display: inline-block;
+.card a {
+    margin-top: auto;
+    align-self: flex-start;
     padding: 10px 22px;
     border-radius: 999px;
     background: linear-gradient(135deg, #2563eb, #3b82f6);
@@ -208,9 +178,21 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card .btn:hover {
+.card a:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 26px rgba(37, 99, 235, 0.35);
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 16px;
+    color: #64748b;
 }
 
 
@@ -267,18 +249,7 @@
    RESPONSIVE
 ========================= */
 
-@media (max-width: 1024px) {
-    .portfolio-grid,
-    .skeleton-wrapper {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 640px) {
-    .portfolio-grid,
-    .skeleton-wrapper {
-        grid-template-columns: 1fr;
-    }
     .portfolio-hero h1 {
         font-size: 32px;
     }
