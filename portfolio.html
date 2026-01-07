@@ -48,91 +48,108 @@
             <button data-filter="bootstrap">Bootstrap</button>
         </div>
 
-        <!-- PROJECTS GRID -->
+        <!-- ================= SKELETON (ONLY ON LOAD) ================= -->
+        <div class="skeleton-wrapper container">
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+        </div>
+
+        <!-- ================= PROJECTS GRID ================= -->
         <section class="portfolio-grid container">
 
             <!-- PROJECT 1 -->
-            <div class="portfolio-card" data-tags="html css aos">
+            <div class="portfolio-card" data-tags="html css aos" tabindex="0" role="button">
                 <div class="card-image">
-                    <img src="images/project-aos.png" alt="Landing Page with AOS">
+                    <img src="images/project-aos.png" alt="Landing Page with AOS animations">
                 </div>
                 <div class="card">
                     <h3>Landing Page with AOS</h3>
                     <p>Animated landing page using HTML, CSS and AOS.</p>
                     <div class="tags">
-                        <span>HTML</span><span>CSS</span><span>AOS</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>AOS</span>
                     </div>
                     <a href="https://aray111.github.io/HomeTaskAOS/" target="_blank" class="btn">
-          View Live
-        </a>
+            View Live
+          </a>
                 </div>
             </div>
 
             <!-- PROJECT 2 -->
-            <div class="portfolio-card" data-tags="html css javascript">
+            <div class="portfolio-card" data-tags="html css javascript" tabindex="0" role="button">
                 <div class="card-image">
-                    <img src="images/project-gallery.png" alt="Image Gallery">
+                    <img src="images/project-gallery.png" alt="Interactive image gallery">
                 </div>
                 <div class="card">
                     <h3>Interactive Image Gallery</h3>
-                    <p>Masonry layout with Glightbox.</p>
+                    <p>Masonry layout gallery with Glightbox.</p>
                     <div class="tags">
-                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
                     </div>
                     <a href="https://aray111.github.io/HomeTaskglightbox-masonry/" target="_blank" class="btn">
-          View Live
-        </a>
+            View Live
+          </a>
                 </div>
             </div>
 
             <!-- PROJECT 3 -->
-            <div class="portfolio-card" data-tags="html css responsive">
+            <div class="portfolio-card" data-tags="html css responsive" tabindex="0" role="button">
                 <div class="card-image">
-                    <img src="images/project-media.png" alt="Responsive Media Page">
+                    <img src="images/project-media.png" alt="Responsive media page">
                 </div>
                 <div class="card">
                     <h3>Responsive Media Page</h3>
-                    <p>Adaptive layout with media content.</p>
+                    <p>Adaptive layout with responsive media content.</p>
                     <div class="tags">
-                        <span>HTML</span><span>CSS</span><span>Responsive</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Responsive</span>
                     </div>
                     <a href="https://aray111.github.io/HomeTaskmedia/" target="_blank" class="btn">
-          View Live
-        </a>
+            View Live
+          </a>
                 </div>
             </div>
 
             <!-- PROJECT 4 -->
-            <div class="portfolio-card" data-tags="html css responsive tailwind">
+            <div class="portfolio-card" data-tags="html responsive tailwind" tabindex="0" role="button">
                 <div class="card-image">
-                    <img src="images/project-tailwind.png" alt="Tailwind CSS Project">
+                    <img src="images/project-tailwind.png" alt="Tailwind CSS project">
                 </div>
                 <div class="card">
                     <h3>Tailwind CSS Project</h3>
                     <p>Responsive layout built with Tailwind CSS.</p>
                     <div class="tags">
-                        <span>HTML</span><span>Tailwind</span><span>Responsive</span>
+                        <span>HTML</span>
+                        <span>Tailwind</span>
+                        <span>Responsive</span>
                     </div>
                     <a href="https://aray111.github.io/HomeTaskTailwindCss/" target="_blank" class="btn">
-          View Live
-        </a>
+            View Live
+          </a>
                 </div>
             </div>
 
             <!-- PROJECT 5 -->
-            <div class="portfolio-card" data-tags="html css responsive bootstrap">
+            <div class="portfolio-card" data-tags="html responsive bootstrap" tabindex="0" role="button">
                 <div class="card-image">
-                    <img src="images/project-bootstrap.png" alt="Bootstrap Project">
+                    <img src="images/project-bootstrap.png" alt="Bootstrap responsive project">
                 </div>
                 <div class="card">
                     <h3>Bootstrap Responsive Page</h3>
-                    <p>Responsive layout using Bootstrap framework.</p>
+                    <p>Responsive layout built with Bootstrap framework.</p>
                     <div class="tags">
-                        <span>HTML</span><span>Bootstrap</span><span>Responsive</span>
+                        <span>HTML</span>
+                        <span>Bootstrap</span>
+                        <span>Responsive</span>
                     </div>
                     <a href="https://aray111.github.io/HomeTaskBootstrap/" target="_blank" class="btn">
-          View Live
-        </a>
+            View Live
+          </a>
                 </div>
             </div>
 
@@ -143,6 +160,19 @@
     <footer class="footer">
         <p>© 2026 Aray</p>
     </footer>
+
+    <!-- ================= MODAL ================= -->
+    <div class="project-modal" id="projectModal">
+        <div class="project-modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <img id="modalImage" src="" alt="Project preview">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <a id="modalLink" href="#" target="_blank" class="btn">
+        View Live
+      </a>
+        </div>
+    </div>
 
     <!-- JS -->
     <script src="js/portfolio.js"></script>

@@ -105,30 +105,54 @@
 }
 
 
-/* FIELD */
+/* =========================
+   FLOATING FIELDS
+========================= */
 
 .field {
-    margin-bottom: 20px;
-}
-
-.field label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 6px;
-    color: #374151;
+    position: relative;
+    margin-bottom: 26px;
 }
 
 .field input,
 .field textarea {
     width: 100%;
-    padding: 12px 14px;
+    padding: 16px 14px;
     border-radius: 14px;
     border: 1px solid #e5e7eb;
     font-size: 14px;
     font-family: inherit;
+    background: transparent;
     transition: border 0.25s ease, box-shadow 0.25s ease;
 }
+
+.field label {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #6b7280;
+    pointer-events: none;
+    background: #ffffff;
+    padding: 0 6px;
+    transition: 0.3s ease;
+}
+
+
+/* FLOAT EFFECT */
+
+.field input:focus+label,
+.field input:not(:placeholder-shown)+label,
+.field textarea:focus+label,
+.field textarea:not(:placeholder-shown)+label {
+    top: -6px;
+    font-size: 11px;
+    color: #2563eb;
+}
+
+
+/* FOCUS */
 
 .field input:focus,
 .field textarea:focus {
@@ -138,11 +162,31 @@
 }
 
 
+/* ERROR */
+
+.field input.error {
+    border-color: #dc2626;
+}
+
+.field small {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #dc2626;
+    min-height: 14px;
+}
+
+.field input:focus.error {
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+}
+
+
 /* =========================
-   BUTTON
+   BUTTON + LOADER
 ========================= */
 
-.contact-form .btn {
+.btn {
+    position: relative;
     margin-top: 10px;
     padding: 14px 28px;
     border-radius: 999px;
@@ -152,11 +196,53 @@
     border: none;
     cursor: pointer;
     transition: background 0.25s ease, transform 0.25s ease;
+    overflow: hidden;
 }
 
-.contact-form .btn:hover {
+.btn:hover {
     background: #1e4ed8;
     transform: translateY(-2px);
+}
+
+.btn-loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    display: none;
+    animation: spin 0.7s linear infinite;
+}
+
+.btn.loading .btn-text {
+    display: none;
+}
+
+.btn.loading .btn-loader {
+    display: inline-block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================
+   SUCCESS / ERROR
+========================= */
+
+.form-success {
+    margin-top: 16px;
+    color: #16a34a;
+    font-size: 14px;
+}
+
+.form-error {
+    margin-top: 16px;
+    color: #dc2626;
+    font-size: 14px;
 }
 
 

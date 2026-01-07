@@ -3,8 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>About me | Aray</title>
+    <title>About Me | Aray</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/about.css">
@@ -25,7 +30,8 @@
         </div>
     </header>
 
-    <main>
+    <!-- ================= MAIN ================= -->
+    <main class="about">
 
         <!-- SECTION 1 -->
         <section class="about-section container">
@@ -33,7 +39,7 @@
                 <h2>About Me</h2>
                 <p>
                     My name is <strong>Aray</strong>. I am a teacher and currently studying
-                    <strong>Frontend Development</strong> through the <strong>Texorda</strong> program. My goal is to become a frontend developer and work on real-world projects.
+                    <strong>Frontend Development</strong> through the <strong>Techorda</strong> program. My goal is to become a frontend developer and work on real-world projects that combine design and functionality.
                 </p>
             </div>
 
@@ -48,7 +54,7 @@
                 <h2>What Inspires Me</h2>
                 <p>
                     I am inspired by modern design, beautiful websites, and continuous growth in IT. I want to contribute to the development of IT in my native language —
-                    <strong>Kazakh</strong> — by creating high-quality websites.
+                    <strong>Kazakh</strong> — by creating high-quality and meaningful websites.
                 </p>
             </div>
 
@@ -72,21 +78,22 @@
             </div>
         </section>
 
-
         <!-- SECTION 4 -->
         <section class="about-section container reverse">
+
+            <!-- Sakura animation -->
+            <div class="sakura-decor">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
             <div class="about-text">
                 <h2>Dreams & Aesthetic Inspiration</h2>
                 <p>
                     I dream of visiting <strong>Japan</strong> to see the cherry blossoms (
-                    <strong>sakura</strong>). Japanese minimalism, aesthetics, and attention to detail strongly influence my creative thinking.
+                    <strong>sakura</strong>). Japanese minimalism, aesthetics, and attention to detail strongly influence my creative thinking and design approach.
                 </p>
-                <div class="sakura-decor">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
             </div>
 
             <div class="about-image">
@@ -94,13 +101,19 @@
             </div>
         </section>
 
-
     </main>
 
+    <!-- ================= FOOTER ================= -->
     <footer class="footer">
         <p>© 2026 Aray</p>
     </footer>
+
+    <!-- Visual noise -->
     <div class="noise-overlay"></div>
+    <div class="scroll-progress"></div>
+
+
+    <!-- JS -->
     <script src="js/main.js"></script>
 
 </body>

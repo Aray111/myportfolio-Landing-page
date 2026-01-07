@@ -1,27 +1,54 @@
-// ===============================
-// FILTER PROJECTS
-// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+    const skeletonWrapper = document.querySelector(".skeleton-wrapper");
+    if (skeletonWrapper) {
+        skeletonWrapper.remove();
+    }
+});
 
-const filterButtons = document.querySelectorAll(".portfolio-filters button");
-const cards = document.querySelectorAll(".portfolio-card");
+document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".portfolio-filters button");
+    const cards = document.querySelectorAll(".portfolio-card");
+    const grid = document.querySelector(".portfolio-grid");
 
-filterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    let isFiltering = false;
 
-        // active button
-        filterButtons.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            if (isFiltering) return;
+            isFiltering = true;
 
-        const filter = btn.dataset.filter;
+            // 1. Active button
+            filterButtons.forEach(b => b.classList.remove("active"));
+            button.classList.add("active");
 
-        cards.forEach((card) => {
-            const tags = card.dataset.tags;
+            const filter = button.dataset.filter;
 
-            if (filter === "all" || tags.includes(filter)) {
-                card.style.display = "flex";
-            } else {
-                card.style.display = "none";
-            }
+            // 2. Save grid position BEFORE
+            const gridTopBefore = grid.getBoundingClientRect().top;
+
+            // 3. Filter cards
+            cards.forEach(card => {
+                const tags = card.dataset.tags || "";
+                card.style.display =
+                    filter === "all" || tags.includes(filter) ?
+                    "flex" :
+                    "none";
+            });
+
+            // 4. Restore scroll position
+            requestAnimationFrame(() => {
+                const gridTopAfter = grid.getBoundingClientRect().top;
+                const diff = gridTopAfter - gridTopBefore;
+
+                if (diff !== 0) {
+                    window.scrollTo({
+                        top: window.scrollY + diff,
+                        behavior: "auto"
+                    });
+                }
+
+                isFiltering = false;
+            });
         });
     });
 });
