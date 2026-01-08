@@ -1,248 +1,226 @@
 /* =========================
-   CONTACT PAGE
+   CONTACT PAGE BASE
 ========================= */
 
 .contact {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding: 100px 0;
     background: linear-gradient(180deg, #f8fbff 0%, #eef3f9 100%);
+    min-height: calc(100vh - 80px);
 }
 
 
 /* =========================
-   HERO
+   HERO SECTION
 ========================= */
 
 .contact-hero {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
+    padding: 0 20px;
 }
 
 .contact-hero h1 {
     font-size: 42px;
-    margin-bottom: 12px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #111827;
     letter-spacing: -0.02em;
 }
 
 .contact-hero p {
-    font-size: 15px;
+    font-size: 16px;
     color: #6b7280;
-    max-width: 520px;
+    max-width: 500px;
     margin: 0 auto;
+    line-height: 1.6;
 }
 
 
 /* =========================
-   WRAPPER
+   WRAPPER & LAYOUT
 ========================= */
 
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 30px;
+    align-items: stretch;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 
 /* =========================
-   INFO
+   CARDS (LEFT & RIGHT)
 ========================= */
 
-.contact-info {
+.contact-info,
+.contact-form {
     background: #ffffff;
     border-radius: 28px;
     padding: 40px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+    display: flex;
+    flex-direction: column;
 }
+
+
+/* =========================
+   INFO CARD (LEFT)
+========================= */
 
 .contact-info h2 {
     font-size: 24px;
     margin-bottom: 12px;
+    color: #111827;
 }
 
 .contact-info p {
     font-size: 14px;
     color: #6b7280;
-    margin-bottom: 24px;
-    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
 .contact-info ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .contact-info li {
-    font-size: 14px;
-    margin-bottom: 12px;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 16px;
+}
+
+.contact-info strong {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
 }
 
 .contact-info a {
     color: #2563eb;
     text-decoration: none;
-    font-weight: 500;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
+    font-weight: 600;
+    font-size: 15px;
 }
 
 
 /* =========================
-   FORM
+   FORM STYLES (RIGHT)
 ========================= */
-
-.contact-form {
-    background: #ffffff;
-    border-radius: 28px;
-    padding: 40px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-}
 
 .contact-form h2 {
     font-size: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 25px;
+    color: #111827;
 }
 
 
-/* =========================
-   FLOATING FIELDS
-========================= */
+/* Поле ввода и Label */
 
 .field {
-    position: relative;
-    margin-bottom: 26px;
+    display: flex;
+    flex-direction: column;
+    /* Ставит label НАД инпутом */
+    margin-bottom: 20px;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 8px;
+    /* Отступ между текстом и полем */
+    order: -1;
+    /* Гарантирует, что label будет первым */
 }
 
 .field input,
 .field textarea {
     width: 100%;
-    padding: 16px 14px;
-    border-radius: 14px;
-    border: 1px solid #e5e7eb;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
     font-size: 14px;
     font-family: inherit;
-    background: transparent;
-    transition: border 0.25s ease, box-shadow 0.25s ease;
-}
-
-.field label {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 14px;
-    color: #6b7280;
-    pointer-events: none;
     background: #ffffff;
-    padding: 0 6px;
-    transition: 0.3s ease;
+    transition: all 0.2s ease;
+}
+
+.field textarea {
+    resize: none;
+    min-height: 120px;
 }
 
 
-/* FLOAT EFFECT */
-
-.field input:focus+label,
-.field input:not(:placeholder-shown)+label,
-.field textarea:focus+label,
-.field textarea:not(:placeholder-shown)+label {
-    top: -6px;
-    font-size: 11px;
-    color: #2563eb;
-}
-
-
-/* FOCUS */
+/* Фокус (когда нажимаем на поле) */
 
 .field input:focus,
 .field textarea:focus {
     outline: none;
     border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-
-/* ERROR */
-
-.field input.error {
-    border-color: #dc2626;
-}
-
-.field small {
-    display: block;
-    margin-top: 6px;
-    font-size: 12px;
-    color: #dc2626;
-    min-height: 14px;
-}
-
-.field input:focus.error {
-    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
 
 /* =========================
-   BUTTON + LOADER
+   BUTTON
 ========================= */
 
-.btn {
-    position: relative;
-    margin-top: 10px;
-    padding: 14px 28px;
-    border-radius: 999px;
+.contact-form .btn {
+    margin-top: auto;
+    /* Прижимает кнопку к низу, если форма короткая */
+    padding: 16px;
+    border-radius: 14px;
     background: #2563eb;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 600;
     border: none;
     cursor: pointer;
-    transition: background 0.25s ease, transform 0.25s ease;
-    overflow: hidden;
+    transition: all 0.2s ease;
 }
 
-.btn:hover {
-    background: #1e4ed8;
+.contact-form .btn:hover {
+    background: #1d4ed8;
     transform: translateY(-2px);
-}
-
-.btn-loader {
-    width: 18px;
-    height: 18px;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    border-top-color: #fff;
-    border-radius: 50%;
-    display: none;
-    animation: spin 0.7s linear infinite;
-}
-
-.btn.loading .btn-text {
-    display: none;
-}
-
-.btn.loading .btn-loader {
-    display: inline-block;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
 }
 
 
 /* =========================
-   SUCCESS / ERROR
+   MESSAGES
 ========================= */
 
+.form-success,
+.form-error {
+    margin-top: 15px;
+    font-size: 13px;
+    text-align: center;
+}
+
 .form-success {
-    margin-top: 16px;
     color: #16a34a;
-    font-size: 14px;
 }
 
 .form-error {
-    margin-top: 16px;
     color: #dc2626;
-    font-size: 14px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -253,20 +231,22 @@
 @media (max-width: 1024px) {
     .contact-wrapper {
         grid-template-columns: 1fr;
-        gap: 40px;
+        padding: 0 20px;
+    }
+    .contact-info,
+    .contact-form {
+        padding: 32px;
     }
 }
 
 @media (max-width: 640px) {
     .contact {
-        padding-top: 100px;
-        padding-bottom: 80px;
+        padding: 60px 0;
     }
     .contact-hero h1 {
         font-size: 32px;
     }
-    .contact-info,
-    .contact-form {
-        padding: 28px;
+    .contact-info li {
+        padding: 15px;
     }
 }
