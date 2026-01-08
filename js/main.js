@@ -53,4 +53,18 @@ document.querySelectorAll(".nav a").forEach(link => {
         burger.classList.remove("active");
         nav.classList.remove("open");
     });
+    // SCROLL REVEAL
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 }
+    );
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
 });
