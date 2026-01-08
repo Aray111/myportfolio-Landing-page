@@ -226,3 +226,12 @@
         height: 200px;
     }
 }
+
+.project-modal {
+    display: none;
+}
+
+.project-modal.active {
+    display: flex;
+    /* или block */
+}
