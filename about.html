@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>About Me | Aray</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,92 +23,104 @@
     <header class="header">
         <div class="container header-inner">
             <div class="logo">Aray.</div>
+
             <nav class="nav">
                 <a href="index.html">Home</a>
                 <a href="about.html" class="active">About</a>
                 <a href="portfolio.html">Portfolio</a>
                 <a href="contacts.html">Contact</a>
             </nav>
-            <button class="burger" aria-label="Open menu">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
 
+            <button class="burger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <!-- ================= MAIN ================= -->
-    <main class="about">
+    <main class="about container">
 
-        <!-- SECTION 1 -->
-        <section class="about-section container">
-            <div class="about-text">
-                <h2>About Me</h2>
-                <p>
-                    My name is <strong>Aray</strong>. I am a teacher and currently studying
-                    <strong>Frontend Development</strong> through the <strong>Techorda</strong> program. My goal is to become a frontend developer and work on real-world projects that combine design and functionality.
-                </p>
-            </div>
+        <!-- ===== VERTICAL ANCHOR NAV ===== -->
+        <nav class="about-nav">
+            <a href="#about" class="active">About</a>
+            <a href="#inspiration">Inspiration</a>
+            <a href="#culture">Culture</a>
+            <a href="#dreams">Dreams</a>
+        </nav>
 
-            <div class="about-image reveal">
-                <img src="images/about.jpeg" alt="About Aray">
-            </div>
-        </section>
+        <!-- ===== CONTENT ===== -->
+        <div class="about-content">
 
-        <!-- SECTION 2 -->
-        <section class="about-section container reverse">
-            <div class="about-text">
-                <h2>What Inspires Me</h2>
-                <p>
-                    I am inspired by modern design, beautiful websites, and continuous growth in IT. I want to contribute to the development of IT in my native language —
-                    <strong>Kazakh</strong> — by creating high-quality and meaningful websites.
-                </p>
-            </div>
+            <!-- SECTION 1 -->
+            <section id="about" class="about-section">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>
+                        My name is <strong>Aray</strong>. I am a teacher and currently studying
+                        <strong>Frontend Development</strong> through the <strong>Techorda</strong> program. My goal is to become a frontend developer and work on real-world projects that combine design and functionality.
+                    </p>
+                </div>
 
-            <div class="about-image">
-                <img src="images/unnamed.jpg" alt="Inspiration">
-            </div>
-        </section>
+                <div class="about-image reveal">
+                    <img src="images/about.jpeg" alt="About Aray">
+                </div>
+            </section>
 
-        <!-- SECTION 3 -->
-        <section class="about-section container">
-            <div class="about-text">
-                <h2>Korean Culture & Inspiration</h2>
-                <p>
-                    I am inspired by Korean culture, especially <strong>K-dramas</strong> and
-                    <strong>K-pop</strong>. South Korea attracts me with its modern aesthetics, creativity, and the strong connection between technology and design.
-                </p>
-            </div>
+            <!-- SECTION 2 -->
+            <section id="inspiration" class="about-section reverse">
+                <div class="about-text">
+                    <h2>What Inspires Me</h2>
+                    <p>
+                        I am inspired by modern design, beautiful websites, and continuous growth in IT. I want to contribute to the development of IT in my native language —
+                        <strong>Kazakh</strong>.
+                    </p>
+                </div>
 
-            <div class="about-image">
-                <img src="images/about-2.png" alt="Korean culture inspiration">
-            </div>
-        </section>
+                <div class="about-image">
+                    <img src="images/unnamed.jpg" alt="Inspiration">
+                </div>
+            </section>
 
-        <!-- SECTION 4 -->
-        <section class="about-section container reverse">
+            <!-- SECTION 3 -->
+            <section id="culture" class="about-section">
+                <div class="about-text">
+                    <h2>Korean Culture & Inspiration</h2>
+                    <p>
+                        I am inspired by Korean culture, especially <strong>K-dramas</strong> and
+                        <strong>K-pop</strong>. South Korea attracts me with its modern aesthetics and creativity.
+                    </p>
+                </div>
 
-            <!-- Sakura animation -->
-            <div class="sakura-decor">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+                <div class="about-image">
+                    <img src="images/about-2.png" alt="Korean culture inspiration">
+                </div>
+            </section>
 
-            <div class="about-text">
-                <h2>Dreams & Aesthetic Inspiration</h2>
-                <p>
-                    I dream of visiting <strong>Japan</strong> to see the cherry blossoms (
-                    <strong>sakura</strong>). Japanese minimalism, aesthetics, and attention to detail strongly influence my creative thinking and design approach.
-                </p>
-            </div>
+            <!-- SECTION 4 -->
+            <section id="dreams" class="about-section reverse">
 
-            <div class="about-image">
-                <img src="images/about-3.png" alt="Japan sakura inspiration">
-            </div>
-        </section>
+                <div class="sakura-decor">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
 
+                <div class="about-text">
+                    <h2>Dreams & Aesthetic Inspiration</h2>
+                    <p>
+                        I dream of visiting <strong>Japan</strong> to see the cherry blossoms (
+                        <strong>sakura</strong>). Japanese minimalism and aesthetics strongly influence my creative thinking.
+                    </p>
+                </div>
+
+                <div class="about-image">
+                    <img src="images/about-3.png" alt="Japan sakura inspiration">
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <!-- ================= FOOTER ================= -->
@@ -114,14 +128,33 @@
         <p>© 2026 Aray. All rights reserved.</p>
     </footer>
 
-    <!-- Visual noise -->
+    <!-- Visual effects -->
     <div class="noise-overlay"></div>
     <div class="scroll-progress"></div>
-
+    <button class="to-top" aria-label="Back to top">
+  ↑
+</button>
 
     <!-- JS -->
     <script src="js/main.js" defer></script>
+    <script>
+        const toTopBtn = document.querySelector('.to-top');
 
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                toTopBtn.classList.add('show');
+            } else {
+                toTopBtn.classList.remove('show');
+            }
+        });
+
+        toTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 </body>
 

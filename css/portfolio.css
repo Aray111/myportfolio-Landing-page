@@ -3,7 +3,8 @@
 ========================= */
 
 .portfolio {
-    padding: 100px 0 80px;
+    /* ❌ padding-top УБРАН */
+    padding-bottom: 80px;
     background: linear-gradient( 135deg, #ffffff 0%, #f0f7ff 60%, #d9f5d9 100%);
 }
 
@@ -14,7 +15,9 @@
 
 .portfolio-hero {
     text-align: center;
-    margin-bottom: 60px;
+    padding: 60px 20px 40px;
+    /* только внутренняя эстетика */
+    margin-bottom: 40px;
 }
 
 .portfolio-hero h1 {
@@ -73,7 +76,6 @@
     gap: 36px;
     justify-content: center;
     align-items: stretch;
-    /* 🔥 фикс разной высоты */
 }
 
 
@@ -89,7 +91,6 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    /* 🔥 обязательно */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -97,9 +98,6 @@
     transform: translateY(-6px);
     box-shadow: 0 30px 60px rgba(37, 99, 235, 0.18);
 }
-
-
-/* скрытие при фильтре */
 
 .portfolio-card.is-hidden {
     display: none;
@@ -137,7 +135,6 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    /* 🔥 растягивает контент */
 }
 
 .card h3 {
@@ -180,7 +177,6 @@
 
 .btn {
     margin-top: auto;
-    /* 🔥 кнопка всегда внизу */
     display: inline-block;
     padding: 12px 22px;
     border-radius: 999px;
@@ -209,9 +205,6 @@
 ========================= */
 
 @media (max-width: 768px) {
-    .portfolio {
-        padding: 90px 0 70px;
-    }
     .portfolio-hero h1 {
         font-size: 32px;
     }
@@ -227,11 +220,23 @@
     }
 }
 
+
+/* =========================
+   MODAL
+========================= */
+
 .project-modal {
     display: none;
 }
 
 .project-modal.active {
     display: flex;
-    /* или block */
+}
+
+
+/* Slight offset for first project cards */
+
+.portfolio-grid {
+    margin-top: 40px;
+    /* 24–40px — выбери на вкус */
 }

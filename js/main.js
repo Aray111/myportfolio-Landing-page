@@ -67,4 +67,37 @@ document.querySelectorAll(".nav a").forEach(link => {
     document.querySelectorAll('.reveal').forEach(el => {
         observer.observe(el);
     });
+    // ===== ABOUT ANCHOR ACTIVE ON SCROLL =====
+
+    const sections = document.querySelectorAll(".about-section");
+    const navLinks = document.querySelectorAll(".about-nav a");
+
+    const HEADER_OFFSET = 120; // header + gap
+
+    function onScroll() {
+        let currentSection = "";
+
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+
+            if (
+                rect.top <= HEADER_OFFSET + 40 &&
+                rect.bottom > HEADER_OFFSET + 40
+            ) {
+                currentSection = section.id;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+
+            if (link.getAttribute("href") === `#${currentSection}`) {
+                link.classList.add("active");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", onScroll);
+    window.addEventListener("load", onScroll);
+
 });
